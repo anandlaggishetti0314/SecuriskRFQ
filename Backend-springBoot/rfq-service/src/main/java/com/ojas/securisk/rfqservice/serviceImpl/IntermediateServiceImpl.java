@@ -1,7 +1,6 @@
 package com.ojas.securisk.rfqservice.serviceImpl;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -10,10 +9,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ojas.securisk.rfqservice.Entity.IntermediateDetails;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ojas.securisk.rfqservice.entity.IntermediateDetails;
 import com.ojas.securisk.rfqservice.repository.IntermediateRepository;
 import com.ojas.securisk.rfqservice.service.IntermediateService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class IntermediateServiceImpl implements IntermediateService {
@@ -50,31 +49,31 @@ public class IntermediateServiceImpl implements IntermediateService {
 
 	@Override
 	public String update(IntermediateDetails details) {
-	    Optional<IntermediateDetails> optionalDetail = repository.findById(details.getId());
-	    if (optionalDetail.isPresent()) {
-	        IntermediateDetails existingDetails = optionalDetail.get();
+		Optional<IntermediateDetails> optionalDetail = repository.findById(details.getId());
+		if (optionalDetail.isPresent()) {
+			IntermediateDetails existingDetails = optionalDetail.get();
 
-	        // Preserve the createdDate (currentDate) value from the existing object
-	        Date createdDate = existingDetails.getCurrentDate();
-	        details.setCurrentDate(createdDate);
+			// Preserve the createdDate (currentDate) value from the existing object
+			Date createdDate = existingDetails.getCurrentDate();
+			details.setCurrentDate(createdDate);
 
-	        // Set the updatedDate to the current date and time
-	        Date updatedDate = new Date();
-	        details.setUpdatedDate(updatedDate);
+			// Set the updatedDate to the current date and time
+			Date updatedDate = new Date();
+			details.setUpdatedDate(updatedDate);
 
-	        // Update the existing object with the new details
-	        BeanUtils.copyProperties(details, existingDetails);
+			// Update the existing object with the new details
+			BeanUtils.copyProperties(details, existingDetails);
 
-	        IntermediateDetails savedDetails = repository.save(existingDetails);
+			IntermediateDetails savedDetails = repository.save(existingDetails);
 
-	        if (savedDetails != null) {
-	            return "Data Updated";
-	        } else {
-	            return "Data Not Updated";
-	        }
-	    } else {
-	        return "Data Not Found";
-	    }
+			if (savedDetails != null) {
+				return "Data Updated";
+			} else {
+				return "Data Not Updated";
+			}
+		} else {
+			return "Data Not Found";
+		}
 	}
 
 }
