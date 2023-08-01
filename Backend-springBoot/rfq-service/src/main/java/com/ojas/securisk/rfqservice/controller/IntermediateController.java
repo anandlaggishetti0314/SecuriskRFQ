@@ -36,4 +36,12 @@ public class IntermediateController {
 		String result = service.update(updatedDetails);
 		return result;
 	}
+	
+	@QueryMapping()
+	public List<String> getNamesByProductType(@Argument String productType) {
+		return service.getNamesByProductType(productType);
+	}
+
+	
+	
 }

@@ -17,6 +17,7 @@ updateDetails(updatedDetails:IntermediateDetailsInput):String
 type Query{
 getAll:[ProductCategeory]
 getAllDetails:[IntermediateDetails]
+getNamesByProductType(productType:String):[String]
 }
 
 input ProductCategeoryInput{
