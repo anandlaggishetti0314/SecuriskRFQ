@@ -76,4 +76,8 @@ public class IntermediateServiceImpl implements IntermediateService {
 		}
 	}
 
+	public List<String> getNamesByProductType(String productType) {
+		return repository.findNameByProductType(productType);
+	}
+
 }
