@@ -1,0 +1,45 @@
+type ProductCategeory{
+  id:String
+  productCategeory:String
+}
+type IntermediateDetails{
+     id:String
+     name:[String]
+	 productCategeory:String
+	 coverage:ID!
+}
+type Mutation{
+createProduct(productCategeory:ProductCategeoryInput):ProductCategeory
+createIntermediateDetails(details:IntermediateDetailsInput):String
+updateDetails(updatedDetails:IntermediateDetailsInput):String
+}
+
+type Query{
+getAll:[ProductCategeory]
+getAllDetails:[IntermediateDetails]
+getNamesByProductType(categeoryinput:ProductCategeoryinput):[String]
+}
+
+input ProductCategeoryInput{
+ id:String
+ productCategeory:String
+}
+
+input IntermediateDetailsInput{
+     id:String
+     name:[String]
+	 productCategeory:String
+	 coverage:ID!
+}
+
+
+input ProductCategeoryinput{
+productCategeory:String
+}
+
+
+
+
+
+
+
