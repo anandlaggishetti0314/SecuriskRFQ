@@ -1,4 +1,4 @@
-package com.ojas.securisk.rfqservice.Entity;
+package com.ojas.securisk.rfqservice.entity;
 
 import java.util.Date;
 import java.util.List;
@@ -9,8 +9,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.ojas.securisk.rfqservice.serializer.CustomDateSerializer;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

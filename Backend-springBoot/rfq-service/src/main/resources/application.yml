@@ -1,11 +1,8 @@
-server:
-  port: 8052
 spring:
-   data:
-    mongodb:
-      database: RFQ
-      auto-index-creation: true
-      host: localhost
-      port: 27017
+   application:
+    name: rfq-service
+   config:
+    import: "optional:configserver:http://localhost:8088"
+  
   
   
