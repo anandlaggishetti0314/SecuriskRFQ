@@ -10,8 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ojas.securisk.rfqservice.controller.IntermediateController.ProductCategeoryinput;
+
 import com.ojas.securisk.rfqservice.entity.IntermediateDetails;
+
 import com.ojas.securisk.rfqservice.repository.IntermediateRepository;
 import com.ojas.securisk.rfqservice.service.IntermediateService;
 
@@ -77,10 +78,8 @@ public class IntermediateServiceImpl implements IntermediateService {
 		}
 	}
 
-	public List<String> getNamesByProductType( ProductCategeoryinput categeoryinput) {
-		return repository.findNameByProductType(categeoryinput.getProductCategeory());
+	public List<String> getNamesByProductType(String productCategeory) {
+		return repository.findNameByProductType(productCategeory);
 	}
-	
-	
 
 }

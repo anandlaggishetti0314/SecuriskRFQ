@@ -20,8 +20,8 @@ public class ProductCategeoryController {
 	public ProductCategeoryServiceImpl productService;
 
 	@MutationMapping()
-	public ProductCategeory createProduct(@Argument ProductCategeory productCategeory) {
-		return productService.createProduct(productCategeory);
+	public ProductCategeory createProduct(@Argument ProductCategeory productCategeorydetails) {
+		return productService.createProduct(productCategeorydetails);
 
 	}
 
