@@ -22,8 +22,8 @@ public class IntermediateDetails {
 
 	@Id
 	private String id;
-	private List<String> name;
-	private String productType;
+	private List<String> productName;
+	private String productCategeory;
 	private Integer coverage;
 
 	@CreatedDate

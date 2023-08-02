@@ -7,9 +7,11 @@ import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.ojas.securisk.rfqservice.entity.IntermediateDetails;
+
 @Repository
 public interface IntermediateRepository extends MongoRepository<IntermediateDetails, String> {
 
 	@Query("{'productCategeory': ?0}")
-    List<String> findNameByProductType(String productCategeory);
+	List<String> findNameByProductType(String productCategeory);
+
 }

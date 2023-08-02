@@ -4,7 +4,7 @@ type ProductCategeory{
 }
 type IntermediateDetails{
      id:String
-     name:[String]
+     productName:[String]
 	 productCategeory:String
 	 coverage:ID!
 }
@@ -27,7 +27,7 @@ input ProductCategeoryInput{
 
 input IntermediateDetailsInput{
      id:String
-     name:[String]
+     productName:[String]
 	 productCategeory:String
 	 coverage:ID!
 }

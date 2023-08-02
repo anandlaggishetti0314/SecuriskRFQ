@@ -11,12 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ojas.securisk.rfqservice.entity.IntermediateDetails;
 
-
 import com.ojas.securisk.rfqservice.serviceImpl.IntermediateServiceImpl;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @RestController
 public class IntermediateController {
@@ -26,6 +21,7 @@ public class IntermediateController {
 
 	@MutationMapping()
 	public String createIntermediateDetails(@Argument IntermediateDetails details) {
+		System.out.println(details);
 		service.insert(details);
 		return "Intermediate details saved successfully.";
 
@@ -42,24 +38,22 @@ public class IntermediateController {
 		String result = service.update(updatedDetails);
 		return result;
 	}
-	
-	
+
+//	@QueryMapping()
+//	public List<String> getNamesByProductType(@Argument ProductCategeoryinput categeoryinput) {
+//
+//		//System.out.println(categeoryinput);
+//		return service.getNamesByProductType(categeoryinput);
+//	}
+//	public List<String> getNamesByProductType(@Argument ProductCategeoryinput categeoryinput) {
+//		List<String> dataList = service.getNamesByProductType(categeoryinput);
+//
+//		return dataList.stream().map(data -> data(ProductCategeoryinput.getProductCategeory()).collect(Collectors.toList());
+//	}
+
 	@QueryMapping()
-    public List<String> getNamesByProductType(@Argument ProductCategeoryinput categeoryinput) {
-		
-		//ProductCategeory product=new ProductCategeory();
-		
-        return service.getNamesByProductType(categeoryinput);
-    }
-
-	@Data
-	@AllArgsConstructor
-	@NoArgsConstructor
-	public class ProductCategeoryinput{
-		private String productCategeory;
-
-		
+	public List<String> getNamesByProductType(@Argument String productCategeory) {
+		return service.getNamesByProductType(productCategeory);
 	}
-	
-}
 
+}
