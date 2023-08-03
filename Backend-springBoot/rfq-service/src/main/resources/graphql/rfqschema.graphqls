@@ -1,3 +1,25 @@
+type CoverageDetails{
+id:String!
+policyType:String
+familyDefination:String
+sumInsured:String
+familyDefination13:Boolean
+familyDefination15:Boolean
+familyDefinationParents:Boolean
+familyDefination13SumInsured:[Float]
+familyDefination15SumInsured:[Float]
+familyDefinationParentSumInsured:[Float]
+empData:Boolean
+employeeDeptDataFilePath:String
+mandateLetterFilePath:String
+coverageSought:String
+DownloadTemplate:String
+filledTemplate:String
+employeeDeptDataFilePath1:String
+coverageSought1:String
+}
+
+
 type ProductCategeory{
   id:String
   productCategeory:String
@@ -10,6 +32,7 @@ type IntermediateDetails{
 }
 type Mutation{
 createProduct(productCategeory:ProductCategeoryInput):ProductCategeory
+createCoverageDetails(details:CoverageDetailsInput):String
 createIntermediateDetails(details:IntermediateDetailsInput):String
 updateDetails(updatedDetails:IntermediateDetailsInput):String
 }
@@ -17,8 +40,30 @@ updateDetails(updatedDetails:IntermediateDetailsInput):String
 type Query{
 getAll:[ProductCategeory]
 getAllDetails:[IntermediateDetails]
-getNamesByProductType(categeoryinput:ProductCategeoryinput):[String]
+
 }
+
+input CoverageDetailsInput{
+id:String
+policyType:String
+familyDefination:String
+sumInsured:String
+familyDefination13:Boolean
+familyDefination15:Boolean
+familyDefinationParents:Boolean
+familyDefination13SumInsured:[Float]
+familyDefination15SumInsured:[Float]
+familyDefinationParentSumInsured:[Float]
+empData:Boolean
+employeeDeptDataFilePath:String
+mandateLetterFilePath:String
+coverageSought:String
+DownloadTemplate:String
+filledTemplate:String
+employeeDeptDataFilePath1:String
+coverageSought1:String
+}
+
 
 input ProductCategeoryInput{
  id:String

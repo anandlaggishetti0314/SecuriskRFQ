@@ -3,11 +3,12 @@ package com.ojas.securisk.rfqservice.serviceImpl;
 import java.io.File;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ojas.securisk.rfqservice.entity.CoverageDetails;
 import com.ojas.securisk.rfqservice.repository.CoverageRepository;
 import com.ojas.securisk.rfqservice.service.CoverageService;
-
+@Service
 public class CoverageServiceImpl implements CoverageService {
 
 	@Autowired

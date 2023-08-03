@@ -31,15 +31,16 @@ public class CoverageDetails {
 	@Field("SUMINSURED")
 	private String sumInsured;
 	@Field("FALIMYDEFINATION_13")
-	private Boolean familyDefination13;
+	private boolean familyDefination13;
 	@Field("FAMILYDEFINATION_15")
-	private Boolean famityDefination15;
+	private boolean familyDefination15;
 	@Field("FAMILYDEFINATIONPARENT")
-	private Boolean familyDefinationParentsOnly;
+	private boolean familyDefinationParents;
 	@Field("FAMILYDEFINATION_13_SUMINSURED")
-	private List<Double> familyDefinatio13SumInsured;
+	private List<Double> familyDefination13SumInsured;
+	
 	@Field("FAMILYDEFINATION_15_SUMINSURED")
-	private List<Double> familyDefinatio15SumInsured;
+	private List<Double> familyDefination15SumInsured;
 	@Field("FAMILYDEFINATIONPARENTSUMINSURED")
 	private List<Double> familyDefinationParentSumInsured;
 	@Field("EMP_DATA")
