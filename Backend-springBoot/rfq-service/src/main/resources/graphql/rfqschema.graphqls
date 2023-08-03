@@ -8,16 +8,47 @@ type IntermediateDetails{
 	 productCategeory:String
 	 coverage:ID!
 }
+
+#... added by subbarao
+type CorporateDetails{
+     _id:String 
+	 insuredName:String 
+	 address:String 
+	 businessNature:String 
+	 contactName:String 
+	 emailId:String 
+	 phoneNumber:String 
+	 intermediaryName:String 
+	 intermdiaryContactName:String 
+	 intermediaryemailId:String 
+     intermediaryphoneNumber:String
+
+}
+
+
+
+
 type Mutation{
 createProduct(productCategeory:ProductCategeoryInput):ProductCategeory
 createIntermediateDetails(details:IntermediateDetailsInput):String
 updateDetails(updatedDetails:IntermediateDetailsInput):String
+
+#... added by subbarao
+saveCorporateDetails(corporateDetailsInput:CorporateDetailsInput):CorporateDetails
+deletACorporateDetailsById(_id:String):String 
+updateCorporateDetails(corporateDetails: CorporateDetailsInput): CorporateDetails
+
+
 }
 
 type Query{
 getAll:[ProductCategeory]
 getAllDetails:[IntermediateDetails]
 getNamesByProductType(categeoryinput:ProductCategeoryinput):[String]
+
+#... added by subbarao
+getAllCorporateDetails:[CorporateDetails]
+getACorporateDetailsById(_id:String):CorporateDetails
 }
 
 input ProductCategeoryInput{
@@ -38,6 +69,21 @@ productCategeory:String
 }
 
 
+#... added by subbarao
+input CorporateDetailsInput{
+     _id:String 
+	 insuredName:String 
+	 address:String 
+	 businessNature:String 
+	 contactName:String 
+	 emailId:String 
+	 phoneNumber:String 
+	 intermediaryName:String 
+	 intermdiaryContactName:String 
+	 intermediaryemailId:String 
+     intermediaryphoneNumber:String
+
+}
 
 
 
