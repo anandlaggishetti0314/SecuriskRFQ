@@ -54,10 +54,19 @@ public class CorporatDetailsServiceImpl implements CorporateDetailsService {
 		return ms;
 	}
 
-	public CorporateDetails updateCorporateDetails(CorporateDetailsInput corporateDetails) {
-		CorporateDetails findById = repository.findById(corporateDetails.get_id()).get();
-		BeanUtils.copyProperties(corporateDetails, findById);
-		return repository.save(findById);
+	@Override
+	public CorporateDetails updateCorporateDetails(CorporateDetails corporateDetails) {
+	//	CorporateDetails existingCorporateDetails = repository.findById(corporateDetails.get_id()).get();
+		
+		CorporateDetails updatedCorporateDetails =null;
+	
+		if( corporateDetails != null) {			
+			updatedCorporateDetails = repository.save(corporateDetails);
+		}
+		
+		
+		
+		return updatedCorporateDetails;
 
 	}
 }

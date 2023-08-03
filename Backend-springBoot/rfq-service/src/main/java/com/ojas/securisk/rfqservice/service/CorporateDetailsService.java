@@ -12,6 +12,8 @@ public interface CorporateDetailsService {
 	public List<CorporateDetails> getAllCorporateDetails();
 
 	public CorporateDetails getCorporateDetailsById(String _id);
+	
+	public CorporateDetails updateCorporateDetails(CorporateDetails corporateDetails);
 
 	public String deleteCorporateDetailsById(String _id);
 

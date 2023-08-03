@@ -1,5 +1,6 @@
 package com.ojas.securisk.rfqservice.controller;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,9 +47,31 @@ public class CorporatDetailsController {
 	}
 
 	@MutationMapping("updateCorporateDetails")
-	public CorporateDetails updateCorporateDetails(@Argument CorporateDetailsInput corporateDetails) {
-		CorporateDetails updateCorporateDetails = serviceImpl.updateCorporateDetails(corporateDetails);
-
+	public CorporateDetails updateCorporateDetails(@Argument("corporateDetails") CorporateDetailsInput corporateDetailsInput) {
+		
+		CorporateDetails  updateCorporateDetails=  serviceImpl.getCorporateDetailsById(corporateDetailsInput.get_id());
+		
+		// updating only non-null fields in database using reflection api
+		 Field[] fields = CorporateDetailsInput.class.getDeclaredFields();
+		    for (Field field : fields) {
+		        try {
+		            field.setAccessible(true);
+		            Object value = field.get(corporateDetailsInput);
+		            if (value != null) {
+		                Field targetField = CorporateDetails.class.getDeclaredField(field.getName());
+		                targetField.setAccessible(true);
+		                targetField.set(updateCorporateDetails, value);
+		            }
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		        }
+		    }
+	
+		    
+		if(updateCorporateDetails != null) {
+		    updateCorporateDetails = serviceImpl.updateCorporateDetails(updateCorporateDetails);
+		}
+		
 		return updateCorporateDetails;
 	}
 
