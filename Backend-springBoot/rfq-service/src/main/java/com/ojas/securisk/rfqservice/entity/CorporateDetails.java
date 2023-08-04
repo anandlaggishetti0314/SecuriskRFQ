@@ -2,12 +2,14 @@ package com.ojas.securisk.rfqservice.entity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 
 @Document(collection = "corporateDetails")
 @Data
 @ToString
+@AllArgsConstructor(staticName = "create")
 public class CorporateDetails {
 
 	private String _id;
