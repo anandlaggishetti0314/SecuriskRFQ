@@ -4,12 +4,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Document(collection = "corporateDetails")
 @Data
 @ToString
 @AllArgsConstructor(staticName = "create")
+@NoArgsConstructor
 public class CorporateDetails {
 
 	private String _id;

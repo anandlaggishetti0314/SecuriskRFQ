@@ -35,7 +35,7 @@ updateDetails(updatedDetails:IntermediateDetailsInput):String
 
 #... added by subbarao
 saveCorporateDetails(corporateDetailsInput:CorporateDetailsInput):CorporateDetails
-deletACorporateDetailsById(_id:String):String 
+deleteCorporateDetailsById(_id:String):String 
 updateCorporateDetails(corporateDetails: CorporateDetailsInput): CorporateDetails
 
 

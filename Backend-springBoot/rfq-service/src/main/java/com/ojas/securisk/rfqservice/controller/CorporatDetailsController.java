@@ -1,6 +1,7 @@
 package com.ojas.securisk.rfqservice.controller;
 
 import java.lang.reflect.Field;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +12,14 @@ import org.springframework.stereotype.Controller;
 
 import com.ojas.securisk.rfqservice.entity.CorporateDetails;
 import com.ojas.securisk.rfqservice.entity.CorporateDetailsInput;
-import com.ojas.securisk.rfqservice.serviceImpl.CorporatDetailsServiceImpl;
+import com.ojas.securisk.rfqservice.serviceImpl.CorporateDetailsServiceImpl;
+
 
 @Controller
 public class CorporatDetailsController {
 
 	@Autowired
-	private CorporatDetailsServiceImpl serviceImpl;
+	private CorporateDetailsServiceImpl serviceImpl;
 
 	@MutationMapping("saveCorporateDetails")
 	public CorporateDetails saveCorporateDetails(@Argument CorporateDetailsInput corporateDetailsInput) {
@@ -39,8 +41,8 @@ public class CorporatDetailsController {
 		return corporateDetailsById;
 	}
 
-	@MutationMapping("deletACorporateDetailsById")
-	public String deletACorporateDetailsById(@Argument String _id) {
+	@MutationMapping("deleteCorporateDetailsById")
+	public String deleteCorporateDetailsById(@Argument("_id") String _id) {
 		String detailsById = serviceImpl.deleteCorporateDetailsById(_id);
 		return detailsById;
 
@@ -66,8 +68,7 @@ public class CorporatDetailsController {
 		            e.printStackTrace();
 		        }
 		    }
-	
-		    
+			    
 		if(updateCorporateDetails != null) {
 		    updateCorporateDetails = serviceImpl.updateCorporateDetails(updateCorporateDetails);
 		}

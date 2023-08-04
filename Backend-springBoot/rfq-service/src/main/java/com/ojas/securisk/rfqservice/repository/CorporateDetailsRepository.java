@@ -1,4 +1,4 @@
-package com.ojas.securisk.rfqservice.service;
+package com.ojas.securisk.rfqservice.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
