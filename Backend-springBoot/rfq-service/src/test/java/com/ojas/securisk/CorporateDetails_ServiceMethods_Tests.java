@@ -1,6 +1,27 @@
 package com.ojas.securisk;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.boot.test.autoconfigure.graphql.tester.AutoConfigureHttpGraphQlTester;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
+
+import com.ojas.securisk.rfqservice.RfqServiceApplication;
+import com.ojas.securisk.rfqservice.serviceImpl.CorporateDetailsServiceImpl;
+
+@SpringBootTest(classes = RfqServiceApplication.class)
+@AutoConfigureHttpGraphQlTester
+@Import(CorporateDetailsServiceImpl.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//@RunWith(PowerMockRunner.class)
 public class CorporateDetails_ServiceMethods_Tests {
+	
+	
+	
+	
+	
+	
+	
 //	
 //	@Test
 //	public void testGetNameByUserId() {
