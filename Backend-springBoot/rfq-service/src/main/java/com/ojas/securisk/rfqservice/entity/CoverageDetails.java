@@ -38,7 +38,7 @@ public class CoverageDetails {
 	private boolean familyDefinationParents;
 	@Field("FAMILYDEFINATION_13_SUMINSURED")
 	private List<Double> familyDefination13SumInsured;
-	
+
 	@Field("FAMILYDEFINATION_15_SUMINSURED")
 	private List<Double> familyDefination15SumInsured;
 	@Field("FAMILYDEFINATIONPARENTSUMINSURED")
@@ -59,5 +59,8 @@ public class CoverageDetails {
 	String employeeDeptDataFilePath1;
 	@Field("COVERAGESOUGHT1")
 	String coverageSought1;
-
+	//@Pattern(regexp = "^(https?://).*")
+	//@NotNull(message = "image should not be Null")
+	@Field("uploadFile")
+	String uploadFile;
 }

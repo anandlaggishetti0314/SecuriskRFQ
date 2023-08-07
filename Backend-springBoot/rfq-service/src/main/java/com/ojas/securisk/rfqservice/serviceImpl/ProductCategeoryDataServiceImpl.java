@@ -45,8 +45,8 @@ public class ProductCategeoryDataServiceImpl implements ProductCategeoryDataServ
 	}
 
 	@Override
-	public ProductCategeoryData getByIdProductCategeory(String id) {
-		ProductCategeoryData categeorydeleteData = productCategeoryDataRepo.findById(id).get();
+	public ProductCategeoryData getByIdProductCategeory(String productCategeory) {
+		ProductCategeoryData categeorydeleteData = productCategeoryDataRepo.findNameByProductType(productCategeory);
 		return categeorydeleteData;
 	}
 

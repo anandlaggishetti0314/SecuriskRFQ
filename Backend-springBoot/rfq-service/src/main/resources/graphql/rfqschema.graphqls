@@ -1,25 +1,3 @@
-type CoverageDetails{
-id:String!
-policyType:String
-familyDefination:String
-sumInsured:String
-familyDefination13:Boolean
-familyDefination15:Boolean
-familyDefinationParents:Boolean
-familyDefination13SumInsured:[Float]
-familyDefination15SumInsured:[Float]
-familyDefinationParentSumInsured:[Float]
-empData:Boolean
-employeeDeptDataFilePath:String
-mandateLetterFilePath:String
-coverageSought:String
-DownloadTemplate:String
-filledTemplate:String
-employeeDeptDataFilePath1:String
-coverageSought1:String
-}
-
-
 type ProductCategeory{
   id:String
   productCategeory:String
@@ -30,17 +8,50 @@ type IntermediateDetails{
 	 productCategeory:String
 	 coverage:ID!
 }
+type ProductCategeoryData{ 
+      id:String
+	  productCategeory:String
+	  productName:[String]
+}
+type CoverageDetails{
+     id:String
+     policyType:String
+     familyDefination:String
+     sumInsured:String
+     familyDefination13:Boolean
+     familyDefination15:Boolean
+     familyDefinationParents:Boolean
+     familyDefination13SumInsured:[Float]
+     familyDefination15SumInsured:[Float]
+     familyDefinationParentSumInsured:[Float]
+     empData:Boolean
+     employeeDeptDataFilePath:String
+     mandateLetterFilePath:String
+     coverageSought:String
+     DownloadTemplate:String
+     filledTemplate:String
+     employeeDeptDataFilePath1:String
+     coverageSought1:String
+     uploadFile:String
+}
 type Mutation{
-createProduct(productCategeory:ProductCategeoryInput):ProductCategeory
-createCoverageDetails(details:CoverageDetailsInput):String
+createProduct(productCategeorydetails:ProductCategeoryInput):ProductCategeory
 createIntermediateDetails(details:IntermediateDetailsInput):String
 updateDetails(updatedDetails:IntermediateDetailsInput):String
+createCategeory(categeorydata:ProductCategeoryDataInput):String
+updateProductCategeory(updatedcategeoryDetails:ProductCategeoryDataInput):String
+deleteProductCategeory(id:String):String
+createCoverageDetails(details:CoverageDetailsInput):String
+updateCoverageDetails(updateCoveragedetails:CoverageDetailsInput):String
 }
 
 type Query{
 getAll:[ProductCategeory]
 getAllDetails:[IntermediateDetails]
-
+getNamesByProductType(productCategeory:String):[String]
+getAllcategeory:[ProductCategeoryData]
+findNameByProductType(productCategeory:String):ProductCategeoryData
+getAllCreateCoverageDetails:[CoverageDetails]
 }
 
 input CoverageDetailsInput{
@@ -62,9 +73,8 @@ DownloadTemplate:String
 filledTemplate:String
 employeeDeptDataFilePath1:String
 coverageSought1:String
+uploadFile:String
 }
-
-
 input ProductCategeoryInput{
  id:String
  productCategeory:String
@@ -77,10 +87,13 @@ input IntermediateDetailsInput{
 	 coverage:ID!
 }
 
-
-input ProductCategeoryinput{
-productCategeory:String
+input ProductCategeoryDataInput{ 
+      id:String
+	  productCategeory:String
+	  productName:[String]
 }
+
+
 
 
 
