@@ -7,7 +7,7 @@ import com.ojas.securisk.rfqservice.entity.CorporateDetailsInput;
 
 public interface CorporateDetailsService {
 
-	public CorporateDetails corporateDetailsSave(CorporateDetailsInput corporateDetailsInput);
+	public CorporateDetails corporateDetailsSave(CorporateDetails corporateDetails);
 
 	public List<CorporateDetails> getAllCorporateDetails();
 
