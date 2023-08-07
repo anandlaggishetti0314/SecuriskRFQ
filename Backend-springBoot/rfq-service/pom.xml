@@ -78,8 +78,13 @@
 			<version>1.6.4</version>
 			<scope>test</scope>
 		</dependency>    
+<<<<<<< HEAD
 <!--
 		<dependency>
+=======
+
+	<dependency>
+>>>>>>> 9e19bc16ad99e2567a21e17394b3c6a30992baef
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
 			<scope>test</scope>
@@ -95,7 +100,7 @@
 			<scope>test</scope>
 		</dependency>
 
- -->	
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>

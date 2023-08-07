@@ -22,9 +22,9 @@ public class CorporatDetailsController {
 	private CorporateDetailsServiceImpl serviceImpl;
 
 	@MutationMapping("saveCorporateDetails")
-	public CorporateDetails saveCorporateDetails(@Argument CorporateDetailsInput corporateDetailsInput) {
+	public CorporateDetails saveCorporateDetails(@Argument CorporateDetails corporateDetails) {
 
-		CorporateDetails corporateDetailsSave = serviceImpl.corporateDetailsSave(corporateDetailsInput);
+		CorporateDetails corporateDetailsSave = serviceImpl.corporateDetailsSave(corporateDetails);
 		return corporateDetailsSave;
 	}
 

@@ -1,10 +1,12 @@
 package com.ojas.securisk.rfqservice.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 
 @Data
 @ToString
+@AllArgsConstructor(staticName = "create")
 public class CorporateDetailsInput {
 
 	private String _id;

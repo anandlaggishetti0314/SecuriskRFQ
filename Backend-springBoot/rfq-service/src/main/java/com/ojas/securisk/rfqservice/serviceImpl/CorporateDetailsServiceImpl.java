@@ -16,11 +16,17 @@ public class CorporateDetailsServiceImpl implements CorporateDetailsService {
 
 	@Autowired
 	private CorporateDetailsRepository repository;
+	
+	
+	public CorporateDetailsServiceImpl(CorporateDetailsRepository repository) {
+		super();
+		this.repository = repository;
+	}
 
 	@Override
-	public CorporateDetails corporateDetailsSave(CorporateDetailsInput corporateDetailsInput) {
+	public CorporateDetails corporateDetailsSave(CorporateDetails corporateDetails) {
 		CorporateDetails corDetails = new CorporateDetails();
-		BeanUtils.copyProperties(corporateDetailsInput, corDetails);
+		BeanUtils.copyProperties(corporateDetails, corDetails);
 		CorporateDetails insert = repository.insert(corDetails);
 		return insert;
 	}
