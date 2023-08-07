@@ -17,6 +17,6 @@ public interface ProductCategeoryDataService {
 
 	public String deleteProductCategeoryData(String id);
 
-	public ProductCategeoryData getByIdProductCategeory(String id);
+	public ProductCategeoryData getByIdProductCategeory(String productCategeory);
 
 }
