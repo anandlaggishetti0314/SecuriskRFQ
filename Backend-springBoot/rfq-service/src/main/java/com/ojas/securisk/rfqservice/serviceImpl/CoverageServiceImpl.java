@@ -2,6 +2,7 @@ package com.ojas.securisk.rfqservice.serviceImpl;
 
 import java.io.File;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -21,8 +22,6 @@ public class CoverageServiceImpl implements CoverageService {
 
 	@Override
 	public String createCoverageDetails(CoverageDetails details) {
-		String foldername = "coverageDetails";
-		File folder = new File("E:\\SecuriskRFQ" + foldername);
 		repository.save(details);
 		return details.getId();
 	}
@@ -34,21 +33,22 @@ public class CoverageServiceImpl implements CoverageService {
 	}
 
 	@Override
-	public String updateCoverageDetails(CoverageDetails details) {
-		repository.save(details);
-		return "Updated Succuessfully";
+	public CoverageDetails updateCoverageDetails(String id, CoverageDetails details) {
+		return repository.save(details);
+		
+		//		Optional<CoverageDetails> findById = repository.findById(id);
+//		CoverageDetails coverageDetails=null;
+//		if (findById.isPresent()) {
+//			coverageDetails=repository.save(details);
+//		}
+//		return coverageDetails;
 	}
 
 	@Override
-	public String uploadFile(String fileType, MultipartFile file) {
-		try {
-			Workbook workbook = WorkbookFactory.create(file.getInputStream());
+	public Optional<CoverageDetails> getCoverageDetailById(String id) {
+		Optional<CoverageDetails> findById = repository.findById(id);
+		return findById;
 
-			workbook.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-
-		}
-		return "File uploaded successfully!";
 	}
+
 }

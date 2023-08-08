@@ -61,6 +61,5 @@ public class CoverageDetails {
 	String coverageSought1;
 	//@Pattern(regexp = "^(https?://).*")
 	//@NotNull(message = "image should not be Null")
-	@Field("uploadFile")
-	String uploadFile;
+	
 }

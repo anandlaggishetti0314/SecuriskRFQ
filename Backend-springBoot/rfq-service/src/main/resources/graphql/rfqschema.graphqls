@@ -31,8 +31,7 @@ type CoverageDetails{
      DownloadTemplate:String
      filledTemplate:String
      employeeDeptDataFilePath1:String
-     coverageSought1:String
-     uploadFile:String
+     coverageSought1:String   
 }
 type Mutation{
 createProduct(productCategeorydetails:ProductCategeoryInput):ProductCategeory
@@ -42,7 +41,7 @@ createCategeory(categeorydata:ProductCategeoryDataInput):String
 updateProductCategeory(updatedcategeoryDetails:ProductCategeoryDataInput):String
 deleteProductCategeory(id:String):String
 createCoverageDetails(details:CoverageDetailsInput):String
-updateCoverageDetails(updateCoveragedetails:CoverageDetailsInput):String
+updateCoverageDetails(id:String!,coverageInput:CoverageDetailsInput):CoverageDetails
 }
 
 type Query{
@@ -52,6 +51,7 @@ getNamesByProductType(productCategeory:String):[String]
 getAllcategeory:[ProductCategeoryData]
 findNameByProductType(productCategeory:String):ProductCategeoryData
 getAllCreateCoverageDetails:[CoverageDetails]
+getCoverageDetailById(id:String!):CoverageDetails
 }
 
 input CoverageDetailsInput{
@@ -73,7 +73,6 @@ DownloadTemplate:String
 filledTemplate:String
 employeeDeptDataFilePath1:String
 coverageSought1:String
-uploadFile:String
 }
 input ProductCategeoryInput{
  id:String

@@ -1,6 +1,7 @@
 package com.ojas.securisk.rfqservice.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,9 +14,11 @@ public interface CoverageService {
 	String createCoverageDetails(CoverageDetails details);
 
 	List<CoverageDetails> getAllCreateCoverageDetails();
+	
+	Optional<CoverageDetails> getCoverageDetailById(String id);
 
-	String updateCoverageDetails(CoverageDetails details);
+	CoverageDetails updateCoverageDetails(String id,CoverageDetails details);
 
-	String uploadFile(String fileType, MultipartFile file);
+	
 
 }
